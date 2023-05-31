@@ -26,7 +26,7 @@ To show additionnal args for models: python3 train.py <model_name> --help
         self.parser.add_argument(
             '-bs', '--batch-size', type=int, default=1, help='size of the batches')
         self.parser.add_argument('-d', '--dataroot', required=False,
-                                 default="datasets/toto", help='root directory of the dataset')
+                                 default="data", help='root directory of the dataset')
         self.parser.add_argument(
             '--lr', type=float, default=0.0002, help='initial learning rate')
         self.parser.add_argument('--decay_epoch', type=int, default=100,

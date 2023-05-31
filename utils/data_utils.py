@@ -19,8 +19,8 @@ class ImageDataset(Dataset):
         self.transform = transforms.Compose(_transforms)
         self.unaligned = unaligned
 
-        self.files_A = sorted(glob(os.path.join(root, 'data/input/*.*')))
-        self.files_B = sorted(glob(os.path.join(root, 'data/label/*.*')))
+        self.files_A = sorted(glob(os.path.join(root, 'input/*.*')))
+        self.files_B = sorted(glob(os.path.join(root, 'label/*.*')))
 
     def __getitem__(self, index):
         item_A = self.transform(Image.open(self.files_A[index % len(self.files_A)]))
