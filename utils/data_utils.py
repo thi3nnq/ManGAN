@@ -14,13 +14,13 @@ from PIL import Image
 
 # ----------------- Data Loader -----------------
 class ImageDataset(Dataset):
-    def __init__(self, root, _transforms=None, unaligned=False, mode='train'):
+    def __init__(self, root, _transforms=None, unaligned=False):
         super().__init__()
         self.transform = transforms.Compose(_transforms)
         self.unaligned = unaligned
 
-        self.files_A = sorted(glob(os.path.join(root, '{}A/*.*'.format(mode))))
-        self.files_B = sorted(glob(os.path.join(root, '{}B/*.*'.format(mode))))
+        self.files_A = sorted(glob(os.path.join(root, 'data/input/*.*')))
+        self.files_B = sorted(glob(os.path.join(root, 'data/label/*.*')))
 
     def __getitem__(self, index):
         item_A = self.transform(Image.open(self.files_A[index % len(self.files_A)]))
